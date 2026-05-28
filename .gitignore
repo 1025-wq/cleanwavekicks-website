@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# phase 2 prompt (contains API keys — never commit)
+PHASE2_PROMPT.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

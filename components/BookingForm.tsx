@@ -63,15 +63,31 @@ export default function BookingForm() {
     watchedValues.addDelivery,
   ]);
 
-  const onSubmit = (data: BookingFormData) => {
+  const onSubmit = async (data: BookingFormData) => {
+    // Honeypot check
     if (data.website) return;
 
     setIsSubmitting(true);
 
-    const phone = data.whatsappNumber.replace(/\D/g, "");
-    const message = buildWhatsAppMessage(data, total);
-    const waUrl = `https://wa.me/27728919458?text=${encodeURIComponent(message)}`;
+    try {
+      // POST to API — saves to DB and emails Binny
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
+      if (!res.ok) {
+        throw new Error("API error");
+      }
+    } catch (err) {
+      console.error("Booking API error:", err);
+      // Don't block the user — still open WhatsApp even if API fails
+    }
+
+    // Always open WhatsApp after (customer confirmation step)
+    const message = buildWhatsAppMessage(data, total);
+    const waUrl = `https://wa.me/27728918458?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
 
     setTimeout(() => setIsSubmitting(false), 3000);
