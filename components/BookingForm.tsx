@@ -122,7 +122,7 @@ export default function BookingForm() {
             <input
               type="text"
               {...register("fullName")}
-              placeholder="e.g. Thabo Ndebele"
+              placeholder="Your full name"
               className="w-full bg-navy/60 border border-white/10 rounded-xl px-4 py-3.5 font-body text-white placeholder:text-white/25 focus:outline-none focus:border-pink/50 focus:ring-1 focus:ring-pink/30 transition-all"
             />
             {errors.fullName && (
