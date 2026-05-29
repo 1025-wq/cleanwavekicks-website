@@ -128,12 +128,8 @@ export async function POST(req: NextRequest) {
             </div>
             <div style="margin-top: 16px; text-align: center;">
               <a href="https://wa.me/${phone}?text=Hi+${encodeURIComponent(data.fullName)}!+This+is+Clean+Wave+Kicks+confirming+your+booking."
-                style="background: #25D366; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; margin-right: 8px;">
+                style="background: #25D366; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
                 Reply on WhatsApp (Binny)
-              </a>
-              <a href="https://wa.me/27728918458?text=New+booking+from+${encodeURIComponent(data.fullName)}+for+${data.numberOfPairs}+pair(s)."
-                style="background: #128C7E; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
-                Notify Partner
               </a>
             </div>
           </div>
