@@ -68,13 +68,13 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://wa.me/27728919458"
+                  href="https://wa.me/27728918458"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 font-body text-sm text-white/50 hover:text-cyan transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 shrink-0" />
-                  +27 728 919 458
+                  +27 72 891 8458
                 </a>
               </li>
               <li>

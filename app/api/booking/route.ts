@@ -98,9 +98,11 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL!,
-      to: process.env.NOTIFICATION_EMAIL!,
+    const emailResponse = await resend.emails.send({
+      // Use the verified Resend sender. onboarding@resend.dev only delivers to
+      // the Resend account owner's address, so the recipient must match it.
+      from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+      to: ['Cleanwavekicks@gmail.com'],
       subject: `🧼 New Booking — ${data.fullName} | ${data.numberOfPairs} pair(s) | R${total}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f9fafb; border-radius: 8px;">
@@ -129,7 +131,7 @@ export async function POST(req: NextRequest) {
                 style="background: #25D366; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; margin-right: 8px;">
                 Reply on WhatsApp (Binny)
               </a>
-              <a href="https://wa.me/27635780647?text=New+booking+from+${encodeURIComponent(data.fullName)}+for+${data.numberOfPairs}+pair(s)."
+              <a href="https://wa.me/27728918458?text=New+booking+from+${encodeURIComponent(data.fullName)}+for+${data.numberOfPairs}+pair(s)."
                 style="background: #128C7E; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
                 Notify Partner
               </a>
@@ -139,9 +141,17 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
+
+    // Resend returns { data, error } instead of throwing — log the full
+    // response so failures (unverified sender/recipient, bad key) are visible.
+    if (emailResponse.error) {
+      console.error('Resend email error (full response):', JSON.stringify(emailResponse, null, 2))
+    } else {
+      console.log('Resend email sent:', JSON.stringify(emailResponse.data))
+    }
   } catch (emailError) {
     // Don't fail the booking if email fails — log it and continue
-    console.error('Resend email error:', emailError)
+    console.error('Resend email exception (full response):', JSON.stringify(emailError, Object.getOwnPropertyNames(emailError), 2))
   }
 
   return NextResponse.json({ success: true })
