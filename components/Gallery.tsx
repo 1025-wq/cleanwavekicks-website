@@ -155,7 +155,7 @@ const extraImages = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="relative py-20 sm:py-28 bg-navy">
+    <section id="gallery" className="relative py-12 sm:py-28 bg-navy">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

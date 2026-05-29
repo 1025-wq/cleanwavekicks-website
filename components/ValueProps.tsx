@@ -7,7 +7,7 @@ const props = [
   {
     icon: Car,
     title: "Mobile Service",
-    description: "We pick up and drop off your sneakers — right at your door.",
+    description: "We pick up and drop off your sneakers - right at your door.",
     color: "cyan" as const,
   },
   {
@@ -42,7 +42,7 @@ const colorMap = {
 
 export default function ValueProps() {
   return (
-    <section id="services" className="relative py-20 sm:py-28 bg-navy">
+    <section id="services" className="relative py-12 sm:py-28 bg-navy">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

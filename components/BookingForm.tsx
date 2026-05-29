@@ -70,7 +70,7 @@ export default function BookingForm() {
     setIsSubmitting(true);
 
     try {
-      // POST to API — saves to DB and emails Binny
+      // POST to API - saves to DB and emails Binny
       const res = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -82,7 +82,7 @@ export default function BookingForm() {
       }
     } catch (err) {
       console.error("Booking API error:", err);
-      // Don't block the user — still open WhatsApp even if API fails
+      // Don't block the user - still open WhatsApp even if API fails
     }
 
     // Always open WhatsApp after (customer confirmation step)
@@ -94,7 +94,7 @@ export default function BookingForm() {
   };
 
   return (
-    <section id="booking" className="relative py-20 sm:py-28 bg-navy-light">
+    <section id="booking" className="relative py-12 sm:py-28 bg-navy-light">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -303,10 +303,10 @@ export default function BookingForm() {
                 className="w-full bg-navy/60 border border-white/10 rounded-xl px-4 py-3.5 font-body text-white focus:outline-none focus:border-pink/50 focus:ring-1 focus:ring-pink/30 transition-all appearance-none"
               >
                 <option value="standard" className="bg-navy text-white">
-                  Standard (2 days) — Free
+                  Standard (2 days) - Free
                 </option>
                 <option value="express" className="bg-navy text-white">
-                  Express Same Day — +R50/pair
+                  Express Same Day - +R50/pair
                 </option>
               </select>
             </div>

@@ -28,7 +28,7 @@ export default function Pricing() {
   const pricing = category === "adults" ? adultPricing : kidsPricing;
 
   return (
-    <section id="pricing" className="relative py-20 sm:py-28 bg-navy-light">
+    <section id="pricing" className="relative py-12 sm:py-28 bg-navy-light">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ export default function Pricing() {
           <div className="inline-flex bg-navy/60 rounded-full p-1 border border-white/10">
             <button
               onClick={() => setCategory("adults")}
-              className={`px-6 py-2.5 rounded-full text-sm font-display font-bold transition-all duration-300 ${
+              className={`px-6 py-3 min-h-[44px] rounded-full text-sm font-display font-bold transition-all duration-300 ${
                 category === "adults"
                   ? "bg-pink text-white glow-pink"
                   : "text-white/50 hover:text-white"
@@ -60,7 +60,7 @@ export default function Pricing() {
             </button>
             <button
               onClick={() => setCategory("kids")}
-              className={`px-6 py-2.5 rounded-full text-sm font-display font-bold transition-all duration-300 ${
+              className={`px-6 py-3 min-h-[44px] rounded-full text-sm font-display font-bold transition-all duration-300 ${
                 category === "kids"
                   ? "bg-pink text-white glow-pink"
                   : "text-white/50 hover:text-white"
@@ -80,7 +80,7 @@ export default function Pricing() {
             transition={{ duration: 0.3 }}
             className="card-glow rounded-2xl p-6 sm:p-8"
           >
-            <h3 className="font-display font-bold text-xl mb-6 flex items-center gap-2">
+            <h3 className="font-display font-bold text-xl mb-6 flex items-center gap-2 text-pink">
               <Tag className="w-5 h-5 text-pink" />
               {category === "adults" ? "Adult" : "Kids"} Pricing
             </h3>
@@ -95,7 +95,7 @@ export default function Pricing() {
                   <span className="font-body text-white/70 text-sm sm:text-base">
                     {item.service}
                   </span>
-                  <span className="font-display font-bold text-lg text-white">
+                  <span className="font-display font-bold text-lg text-pink">
                     {item.price}
                   </span>
                 </div>
@@ -122,7 +122,7 @@ export default function Pricing() {
                   </span>
                   <span
                     className={`font-display font-bold text-lg ${
-                      item.price === "Free" ? "text-green-400" : "text-white"
+                      item.price === "Free" ? "text-green-400" : "text-pink"
                     }`}
                   >
                     {item.price}
@@ -148,6 +148,13 @@ export default function Pricing() {
             </p>
           </div>
         </motion.div>
+
+        {/* Loyal customer discount banner */}
+        <div className="mt-6 max-w-4xl mx-auto rounded-2xl bg-navy border-2 border-pink p-5 sm:p-6 text-center">
+          <p className="font-display font-bold text-base sm:text-lg text-pink">
+            🎁 Loyal customers get 10% off from their second booking onwards
+          </p>
+        </div>
       </div>
     </section>
   );

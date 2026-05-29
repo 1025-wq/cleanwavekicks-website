@@ -71,7 +71,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      className="relative min-h-[88vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-light to-navy" />
@@ -87,7 +87,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex items-center justify-center gap-2 mb-6"
+          className="flex items-center justify-center gap-2 mb-4 sm:mb-6"
         >
           <Sparkles className="w-5 h-5 text-cyan" />
           <span className="text-cyan/80 font-body text-sm sm:text-base uppercase tracking-[0.2em] font-medium">
@@ -100,12 +100,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-6"
+          className="font-display font-extrabold text-pink text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-4 sm:mb-6"
           style={{ fontSize: "clamp(2.25rem, 6vw, 4.5rem)" }}
         >
           Your Sneakers Deserve
           <br />
-          <span className="bg-gradient-to-r from-pink via-pink to-cyan bg-clip-text text-transparent">
+          <span className="text-pink">
             a Clean Wave
           </span>
         </motion.h1>
@@ -114,9 +114,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="font-body text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="font-body text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed"
         >
-          Professional mobile sneaker laundry — we come to you, or you drop off
+          Professional mobile sneaker laundry - we come to you, or you drop off
           at our locations.
         </motion.p>
 
@@ -128,7 +128,7 @@ export default function Hero() {
         >
           <a
             href="#booking"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full bg-pink text-white font-display font-bold text-base sm:text-lg glow-pink hover:bg-pink-dark transition-all duration-300 hover:scale-105"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full bg-pink text-white font-display font-bold text-base sm:text-lg hover:bg-pink-dark hover:shadow-[0_0_20px_rgba(255,79,158,0.5)] transition-all duration-300 hover:scale-105"
           >
             Book Now
           </a>

@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
   }
 
-  // Honeypot check — bots fill hidden fields, humans don't
+  // Honeypot check - bots fill hidden fields, humans don't
   if (typeof body === 'object' && body !== null && 'website' in body && (body as Record<string, unknown>).website) {
     return NextResponse.json({ success: true }) // Silent reject
   }
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
       // the Resend account owner's address, so the recipient must match it.
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
       to: ['Cleanwavekicks@gmail.com'],
-      subject: `🧼 New Booking — ${data.fullName} | ${data.numberOfPairs} pair(s) | R${total}`,
+      subject: `🧼 New Booking - ${data.fullName} | ${data.numberOfPairs} pair(s) | R${total}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f9fafb; border-radius: 8px;">
           <div style="background: #0A0E2E; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
       `,
     })
 
-    // Resend returns { data, error } instead of throwing — log the full
+    // Resend returns { data, error } instead of throwing - log the full
     // response so failures (unverified sender/recipient, bad key) are visible.
     if (emailResponse.error) {
       console.error('Resend email error (full response):', JSON.stringify(emailResponse, null, 2))
@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
       console.log('Resend email sent:', JSON.stringify(emailResponse.data))
     }
   } catch (emailError) {
-    // Don't fail the booking if email fails — log it and continue
+    // Don't fail the booking if email fails - log it and continue
     console.error('Resend email exception (full response):', JSON.stringify(emailError, Object.getOwnPropertyNames(emailError), 2))
   }
 
