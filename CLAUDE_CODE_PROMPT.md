@@ -135,7 +135,7 @@ Fields:
 
 **On submit (Phase 1 — no backend yet):**
 - Validate all required fields with Zod
-- On success: open WhatsApp with a pre-filled message to +27728919458 summarising the booking details
+- On success: open WhatsApp with a pre-filled message to +27728918458 summarising the booking details
 - WhatsApp message format:
 ```
 Hi Clean Wave Kicks! I'd like to book a clean:
@@ -166,7 +166,7 @@ Hours: **Monday – Sunday, 09:00 – 18:00**
 Each card should have a "Get Directions" button that opens Google Maps with the address.
 
 #### 8. CONTACT / FOOTER
-- WhatsApp: +27 728 919 458 (clickable `wa.me` link)
+- WhatsApp: +27 72 891 8458 (clickable `wa.me` link)
 - Email: Cleanwavekicks@gmail.com (mailto link)
 - Instagram: [@_cleanwavekicks](https://instagram.com/_cleanwavekicks)
 - TikTok: [@cleanwavekicks](https://tiktok.com/@cleanwavekicks)
