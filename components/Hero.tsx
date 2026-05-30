@@ -3,43 +3,6 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
-const bubbleData = [
-  { size: 6, left: 8, delay: 0, duration: 12, opacity: 0.15 },
-  { size: 10, left: 18, delay: 2.5, duration: 10, opacity: 0.2 },
-  { size: 5, left: 30, delay: 5, duration: 14, opacity: 0.12 },
-  { size: 12, left: 42, delay: 1, duration: 9, opacity: 0.25 },
-  { size: 7, left: 55, delay: 4, duration: 11, opacity: 0.18 },
-  { size: 4, left: 65, delay: 7, duration: 13, opacity: 0.1 },
-  { size: 9, left: 73, delay: 3, duration: 8, opacity: 0.22 },
-  { size: 6, left: 82, delay: 6, duration: 12, opacity: 0.14 },
-  { size: 11, left: 90, delay: 1.5, duration: 10, opacity: 0.2 },
-  { size: 8, left: 50, delay: 4.5, duration: 11, opacity: 0.16 },
-  { size: 5, left: 25, delay: 7.5, duration: 9, opacity: 0.3 },
-  { size: 13, left: 95, delay: 0.5, duration: 14, opacity: 0.13 },
-];
-
-function Bubbles() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {bubbleData.map((b, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full bg-cyan/20 animate-bubble"
-          style={{
-            width: b.size,
-            height: b.size,
-            left: `${b.left}%`,
-            bottom: "-10px",
-            animationDelay: `${b.delay}s`,
-            animationDuration: `${b.duration}s`,
-            opacity: b.opacity,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 function WaveSVG() {
   return (
     <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
@@ -75,12 +38,6 @@ export default function Hero() {
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-light to-navy" />
-
-      {/* Glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-pink/5 blur-[120px] animate-glow-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan/5 blur-[150px] animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
-
-      <Bubbles />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <motion.div

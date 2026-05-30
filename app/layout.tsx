@@ -16,23 +16,87 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const siteUrl = "https://cleanwavekicks.vercel.app";
+const siteTitle = "Clean Wave Kicks | Mobile Sneaker Laundry - Johannesburg";
+const siteDescription =
+  "Professional mobile sneaker cleaning in Johannesburg. Standard, suede, leather & colour restoration. Drop off at Little Falls or Northgate. Book online.";
+
 export const metadata: Metadata = {
-  title: "Clean Wave Kicks | Professional Mobile Sneaker Laundry - Johannesburg",
-  description:
-    "Professional mobile sneaker laundry service in Johannesburg. We clean standard, suede, leather sneakers with pickup & delivery. Book your clean today!",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
   keywords: [
-    "sneaker cleaning",
-    "shoe laundry",
-    "Johannesburg",
-    "mobile sneaker cleaner",
-    "Clean Wave Kicks",
+    "sneaker cleaning johannesburg",
+    "shoe cleaning roodepoort",
+    "mobile sneaker laundry",
+    "suede cleaning johannesburg",
   ],
-  openGraph: {
-    title: "Clean Wave Kicks | Professional Mobile Sneaker Laundry",
-    description:
-      "Your sneakers deserve a Clean Wave. Professional mobile sneaker laundry in Johannesburg.",
-    type: "website",
+  alternates: {
+    canonical: "/",
   },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "Clean Wave Kicks",
+    locale: "en_ZA",
+    type: "website",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Clean Wave Kicks - Mobile Sneaker Laundry, Johannesburg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/logo.jpg"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CleaningService",
+  "@id": `${siteUrl}/#business`,
+  name: "Clean Wave Kicks",
+  image: `${siteUrl}/logo.jpg`,
+  description: siteDescription,
+  url: siteUrl,
+  telephone: "+27728918458",
+  email: "Cleanwavekicks@gmail.com",
+  priceRange: "R60 - R250",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2 Van Blerk Close, Willowbrook",
+    addressLocality: "Roodepoort",
+    addressRegion: "Gauteng",
+    postalCode: "1724",
+    addressCountry: "ZA",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Johannesburg",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -43,6 +107,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
       <body className="min-h-screen bg-navy text-white antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

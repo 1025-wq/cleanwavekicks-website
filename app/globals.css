@@ -32,22 +32,6 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translateX(-50%); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes bubble-rise {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-100vh) scale(0.3);
-    opacity: 0;
-  }
-}
-
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.8; }
@@ -57,30 +41,18 @@ h1, h2, h3, h4, h5, h6 {
   animation: wave-drift 8s linear infinite;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-bubble {
-  animation: bubble-rise linear infinite;
-}
-
 .animate-glow-pulse {
   animation: glow-pulse 3s ease-in-out infinite;
 }
 
-/* Pink glow effect */
-.glow-pink {
-  box-shadow: 0 0 20px rgba(255, 79, 158, 0.3), 0 0 60px rgba(255, 79, 158, 0.1);
-}
-
-.glow-pink-hover:hover {
-  box-shadow: 0 0 30px rgba(255, 79, 158, 0.5), 0 0 80px rgba(255, 79, 158, 0.2);
-}
-
-/* Cyan glow */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(91, 200, 245, 0.3), 0 0 60px rgba(91, 200, 245, 0.1);
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Card glow border */
@@ -93,50 +65,6 @@ h1, h2, h3, h4, h5, h6 {
 .card-glow:hover {
   border-color: rgba(255, 79, 158, 0.3);
   box-shadow: 0 0 30px rgba(255, 79, 158, 0.1);
-}
-
-/* Before/after slider */
-.before-after-slider {
-  position: relative;
-  overflow: hidden;
-  touch-action: none;
-  cursor: col-resize;
-}
-
-.before-after-slider .before-image {
-  position: absolute;
-  inset: 0;
-  clip-path: inset(0 var(--clip-right, 50%) 0 0);
-}
-
-.before-after-slider .after-image {
-  position: absolute;
-  inset: 0;
-}
-
-.before-after-slider .slider-handle {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--handle-pos, 50%);
-  width: 4px;
-  background: white;
-  transform: translateX(-50%);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.before-after-slider .slider-handle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 15px rgba(255, 79, 158, 0.5);
 }
 
 /* Scrollbar styling */
