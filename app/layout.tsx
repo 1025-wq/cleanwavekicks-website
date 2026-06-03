@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const siteUrl = "https://cleanwavekicks.vercel.app";
+const siteUrl = "https://cleanwavekicks.co.za";
 const siteTitle = "Clean Wave Kicks | Mobile Sneaker Laundry - Johannesburg";
 const siteDescription =
   "Professional mobile sneaker cleaning in Johannesburg. Standard, suede, leather & colour restoration. Drop off at Little Falls or Northgate. Book online.";
