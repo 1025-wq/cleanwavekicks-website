@@ -364,6 +364,14 @@ export default function BookingForm() {
           <p className="text-center font-body text-white/30 text-xs">
             This will open WhatsApp with your booking details pre-filled.
           </p>
+          <p className="text-center font-body text-white/30 text-xs">
+            By booking, you agree we may use your details to arrange your clean
+            and contact you about your order. See our{" "}
+            <a href="/privacy" className="text-cyan underline hover:text-cyan-dark">
+              Privacy Policy
+            </a>
+            .
+          </p>
         </motion.form>
       </div>
     </section>
