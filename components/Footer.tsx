@@ -144,6 +144,14 @@ export default function Footer() {
                   Privacy
                 </a>
               </li>
+              <li>
+                <a
+                  href="/terms"
+                  className="font-body text-sm text-white/50 hover:text-white transition-colors"
+                >
+                  Terms
+                </a>
+              </li>
             </ul>
           </div>
         </div>
